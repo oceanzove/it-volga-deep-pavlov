@@ -1,0 +1,23 @@
+{
+  "dataset_reader": {
+    "class_name": "conll2003_reader",
+    "data_path": "data/",
+    "tags_file": "data/tags.txt"
+  },
+  "chainer": {
+    "in": ["tokens"],
+    "in_y": ["tags"],
+    "pipe": [
+      {
+        "class_name": "ner",
+        "save_path": "models/ner_model",
+        "load_path": "models/ner_model"
+      }
+    ],
+    "out": ["tags"]
+  },
+  "train": {
+    "epochs": 10,
+    "batch_size": 32
+  }
+}
